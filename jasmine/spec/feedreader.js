@@ -31,16 +31,33 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
+         it('each feed have url', function() {
+            allFeeds.forEach(function(feedItem){
+                expect(feedItem.url).toBeDefined();
+                expect(feedItem.url).toMatch(/^(http|https):\/\//);
+                expect(feedItem.url.length).not.toBe(0);
+            });
+         });
 
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+         it('each feed have name', function() {
+            allFeeds.forEach(function(feedItem){
+                expect(feedItem.name).toBeDefined();
+                expect(feedItem.name.length).not.toBe(0);
+            });
+         });
     });
 
 
     /* TODO: Write a new test suite named "The menu" */
+
+    describe("The menu", function(){
+        var bodyElement = document.body;
+    });
 
         /* TODO: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
