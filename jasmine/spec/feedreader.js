@@ -64,7 +64,7 @@ $(function() {
         * hiding/showing of the menu element.
         */
         it('menu element is hidden by default', function() {
-            expect(bodyElement.className).toContain("menu-hidden");
+            expect(bodyElement.classList.contains('menu-hidden')).toBe(true);
         });
 
         /* TODO: Write a test that ensures the menu changes
@@ -75,14 +75,12 @@ $(function() {
         it('menu changes visibility when the menu icon is clicked', function() {
             var menuElement = document.querySelector('.menu-icon-link');
 
-            if (typeof menuElement !== 'undefined') {
-                menuElement.click();
-                expect(bodyElement.className).not.toContain('menu-hidden');
+            menuElement.click();
 
-                menuElement.click();
-                expect(bodyElement.className).toContain('menu-hidden');
-            }
+            expect(bodyElement.classList.contains('menu-hidden')).toBe(false);
 
+            menuElement.click();
+            expect(bodyElement.classList.contains('menu-hidden')).toBe(true);
         });
     });
 
